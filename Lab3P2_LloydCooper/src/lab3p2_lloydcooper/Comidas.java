@@ -21,6 +21,6 @@ public class Comidas extends Productos {
         return "Comidas{" + "vencido=" + vencido + '}';
     }
     
-    
+        
 }
 
