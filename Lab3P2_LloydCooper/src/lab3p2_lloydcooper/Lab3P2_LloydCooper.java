@@ -59,6 +59,7 @@ public class Lab3P2_LloydCooper {
 
 
     private static void agregarComida() {
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Ingrese el nombre de la comida:");
         String nombre = scanner.nextLine();
@@ -74,7 +75,7 @@ public class Lab3P2_LloydCooper {
 
         System.out.println("Comida agregada al inventario con éxito.");
     }
-
+    
     private static void agregarBebida() {
         Scanner scanner = new Scanner(System.in);
 
@@ -94,7 +95,39 @@ public class Lab3P2_LloydCooper {
     }
 
     private static void modificarProducto() {
-        
+        mostrarProductos();
+        System.out.println("Ingrese el número del producto que desea modificar:");
+        int numeroProducto = scanner.nextInt();
+
+        if (numeroProducto > 0 && numeroProducto <= inventario.size()) {
+            Productos producto = inventario.get(numeroProducto - 1);
+            System.out.println("El producto seleccionado es: " + producto.toString());
+            System.out.println("¿Qué desea modificar?");
+            System.out.println("1. Nombre");
+            System.out.println("2. Precio");
+
+            int opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println("Ingrese el nuevo nombre del producto:");
+                    String nuevoNombre = scanner.next();
+                    producto.setNombre(nuevoNombre);
+                    System.out.println("El nombre del producto ha sido modificado exitosamente.");
+                    break;
+                case 2:
+                    System.out.println("Ingrese el nuevo precio del producto:");
+                    double nuevoPrecio = scanner.nextDouble();
+                    producto.setPrecio(nuevoPrecio);
+                    System.out.println("El precio del producto ha sido modificado exitosamente.");
+                    break;
+                default:
+                    System.out.println("Opción inválida, intente de nuevo.");
+                    break;
+            }
+        } else {
+            System.out.println("Producto no encontrado.");
+        }
     }
 
     private static void eliminarProducto() {
@@ -137,6 +170,10 @@ public class Lab3P2_LloydCooper {
 
 
     private static void listarCompras() {
-        
+    System.out.println("---- HISTORIAL DE COMPRAS ----");
+    for (int i = 0; i < historialCompras.size(); i++) {
+        Compras compra = historialCompras.get(i);
+        System.out.println("Compra #" + (i + 1) + ": " + compra.toString());
     }
+}
 }
