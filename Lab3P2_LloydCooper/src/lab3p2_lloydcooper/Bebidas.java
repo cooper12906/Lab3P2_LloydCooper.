@@ -18,7 +18,7 @@ public class Bebidas extends Productos {
 
     @Override
     public String toString() {
-        return super.toString() + " Bebida tamaño " + tam;
+        return super.toString() + " Bebida tamaño: " + tam + "mL";
     }
 }
 

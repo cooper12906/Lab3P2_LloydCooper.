@@ -3,11 +3,13 @@ package lab3p2_lloydcooper;
 public class Comidas extends Productos {
     private boolean diasVencimiento;
     private String nombre;
+    private double precio;
 
     public Comidas(String nombre, double precio, boolean diasVencimiento) {
         super(nombre, precio);
         this.nombre = nombre;
         this.diasVencimiento = diasVencimiento;
+        this.precio = precio;
     }
 
     public boolean getDiasVencimiento() {
@@ -20,7 +22,7 @@ public class Comidas extends Productos {
 
     @Override
     public String toString() {
-        return "Comidas{" + "Nombre:" + nombre + ", Esta vencido? " + diasVencimiento + '}';
+        return "Comidas{" + "Nombre:" + nombre + "Precio comida: " + precio + ", Esta vencido? " + diasVencimiento + '}';
     }         
 }
 
