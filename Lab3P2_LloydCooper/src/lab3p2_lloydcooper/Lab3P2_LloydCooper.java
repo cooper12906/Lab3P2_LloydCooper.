@@ -159,12 +159,12 @@ public class Lab3P2_LloydCooper {
 
         while (seguirComprando) {
             mostrarProductos();
-            
+
             System.out.println("Ingrese el número del producto que desea comprar:");
             int numeroProducto = scanner.nextInt();
 
-            //Productos producto = listaProductos.get(numeroProducto - 1);
-            //compra.agregarProducto(producto);
+            Productos producto = inventario.get(numeroProducto - 1);
+            compra.agregarProducto(producto);
 
             System.out.println("El producto se ha agregado a la compra.");
 
@@ -182,6 +182,7 @@ public class Lab3P2_LloydCooper {
         }
         System.out.println("Total: " + compra.getTotal());
     }
+
 
 
     private static void listarCompras() {
