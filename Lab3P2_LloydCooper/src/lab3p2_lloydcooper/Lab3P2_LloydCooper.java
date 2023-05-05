@@ -1,10 +1,12 @@
 package lab3p2_lloydcooper;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Lab3P2_LloydCooper {
     private static Scanner scanner = new Scanner(System.in);
-    
+    private static ArrayList<Productos> inventario = new ArrayList<Productos>();
+    private static ArrayList<Compras> historialCompras = new ArrayList<Compras>();
 
     public static void main(String[] args) {
         int opcion;
@@ -55,36 +57,86 @@ public class Lab3P2_LloydCooper {
         System.out.print("Ingrese su opción: ");
     }
 
+
     private static void agregarComida() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese el nombre de la comida: ");
+
+        System.out.println("Ingrese el nombre de la comida:");
         String nombre = scanner.nextLine();
-        System.out.println("Ingrese el precio de la comida: ");
+
+        System.out.println("Ingrese el precio de la comida:");
         double precio = scanner.nextDouble();
-        System.out.println("");
+
+        System.out.println("Ingrese la cantidad de días que faltan para que la comida venza:");
+        double vencido = scanner.nextDouble();
+
+        Comidas comida = new Comidas(nombre, precio, vencido);
+        inventario.add(comida);
+
+        System.out.println("Comida agregada al inventario con éxito.");
     }
 
     private static void agregarBebida() {
-        // Lógica para agregar una bebida al inventario
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el nombre de la bebida:");
+        String nombre = scanner.nextLine();
+
+        System.out.println("Ingrese el precio de la bebida:");
+        double precio = scanner.nextDouble();
+
+        System.out.println("Ingrese el tamaño de la bebida en mililitros:");
+        int tam = scanner.nextInt();
+
+        Bebidas bebida = new Bebidas(nombre, precio, tam);
+        inventario.add(bebida);
+
+        System.out.println("Bebida agregada al inventario con éxito.");
     }
 
     private static void modificarProducto() {
-        // Lógica para modificar un producto en el inventario
+        
     }
 
     private static void eliminarProducto() {
-        // Lógica para eliminar un producto del inventario
+        
     }
 
     private static void mostrarProductos() {
-        // Lógica para mostrar los productos en el inventario
+        
     }
 
     private static void generarCompra() {
-        // Lógica para generar una compra
+        Compras compra = new Compras();
+        boolean seguirComprando = true;
+
+        while (seguirComprando) {
+            mostrarProductos();
+            
+            System.out.println("Ingrese el número del producto que desea comprar:");
+            int numeroProducto = scanner.nextInt();
+
+            //Productos producto = listaProductos.get(numeroProducto - 1);
+            //compra.agregarProducto(producto);
+
+            System.out.println("El producto se ha agregado a la compra.");
+
+            System.out.println("¿Desea seguir comprando? (S/N)");
+            String respuesta = scanner.next();
+
+            if (respuesta.equalsIgnoreCase("N")) {
+                seguirComprando = false;
+            }
+        }
+
+        System.out.println("Resumen de la compra:");
+        for (Productos producto : compra.getListaProductos()) {
+            System.out.println(producto.getNombre() + " - " + producto.getPrecio());
+        }
+        System.out.println("Total: " + compra.getTotal());
     }
 
+
     private static void listarCompras() {
-        // Lógica para listar las compras realizadas
+        
     }
 }

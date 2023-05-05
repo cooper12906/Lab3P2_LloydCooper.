@@ -3,7 +3,7 @@ package lab3p2_lloydcooper;
 public class Bebidas extends Productos {
     private int tam;
 
-    public Bebidas(String nombre, double precio) {
+    public Bebidas(String nombre, double precio, int tam) {
         super(nombre, precio);
         this.tam = tam;
     }
@@ -18,6 +18,7 @@ public class Bebidas extends Productos {
 
     @Override
     public String toString() {
-        return "Bebidas{" + "tam=" + tam + '}';
+        return super.toString() + " Bebida tamaño " + tam;
     }
 }
+
