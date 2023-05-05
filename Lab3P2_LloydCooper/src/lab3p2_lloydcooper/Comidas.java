@@ -1,24 +1,24 @@
 package lab3p2_lloydcooper;
 
 public class Comidas extends Productos {
-    private double diasVencimiento;
+    private boolean diasVencimiento;
 
-    public Comidas(String nombre, double precio, double diasVencimiento) {
+    public Comidas(String nombre, double precio, boolean diasVencimiento) {
         super(nombre, precio);
         this.diasVencimiento = diasVencimiento;
     }
 
-    public double getDiasVencimiento() {
+    public boolean getDiasVencimiento() {
         return diasVencimiento;
     }
 
-    public void setDiasVencimiento(double diasVencimiento) {
+    public void setDiasVencimiento(boolean diasVencimiento) {
         this.diasVencimiento = diasVencimiento;
     }
 
     @Override
     public String toString() {
-        return "Comidas{" + "diasVencimiento=" + diasVencimiento + '}';
+        return "Comidas{" + "Los dias de vencimiento son =" + diasVencimiento + '}';
     }       
 }
 

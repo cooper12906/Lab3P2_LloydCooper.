@@ -58,23 +58,24 @@ public class Lab3P2_LloydCooper {
     }
 
 
-    private static void agregarComida() {
-        Scanner scanner = new Scanner(System.in);
+   private static void agregarComida() {
+    Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ingrese el nombre de la comida:");
-        String nombre = scanner.nextLine();
+    System.out.println("Ingrese el nombre de la comida:");
+    String nombre = scanner.nextLine();
 
-        System.out.println("Ingrese el precio de la comida:");
-        double precio = scanner.nextDouble();
+    System.out.println("Ingrese el precio de la comida:");
+    double precio = scanner.nextDouble();
 
-        System.out.println("Ingrese la cantidad de días que faltan para que la comida venza:");
-        double vencido = scanner.nextDouble();
+    System.out.println("¿La comida está vencida? (S/N)");
+    String respuesta = scanner.next();
+    boolean vencido = respuesta.equalsIgnoreCase("S");
 
-        Comidas comida = new Comidas(nombre, precio, vencido);
-        inventario.add(comida);
+    Comidas comida = new Comidas(nombre, precio, vencido);
+    inventario.add(comida);
 
-        System.out.println("Comida agregada al inventario con éxito.");
-    }
+    System.out.println("Comida agregada al inventario con éxito.");
+}
     
     private static void agregarBebida() {
         Scanner scanner = new Scanner(System.in);
@@ -131,7 +132,17 @@ public class Lab3P2_LloydCooper {
     }
 
     private static void eliminarProducto() {
-        
+        mostrarProductos();
+        System.out.println("Ingrese el número del producto que desea eliminar:");
+        int numeroProducto = scanner.nextInt();
+
+        if (numeroProducto > 0 && numeroProducto <= inventario.size()) {
+            Productos producto = inventario.get(numeroProducto - 1);
+            inventario.remove(producto);
+            System.out.println("El producto ha sido eliminado exitosamente.");
+        } else {
+            System.out.println("Producto no encontrado.");
+        }
     }
 
     private static void mostrarProductos() {
