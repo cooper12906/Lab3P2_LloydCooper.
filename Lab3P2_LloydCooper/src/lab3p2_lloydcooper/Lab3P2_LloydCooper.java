@@ -135,7 +135,11 @@ public class Lab3P2_LloydCooper {
     }
 
     private static void mostrarProductos() {
-        
+    System.out.println("---- PRODUCTOS EN INVENTARIO ----");
+    for (int i = 0; i < inventario.size(); i++) {
+        Productos producto = inventario.get(i);
+        System.out.println((i + 1) + ". " + producto.toString());
+    }
     }
 
     private static void generarCompra() {
