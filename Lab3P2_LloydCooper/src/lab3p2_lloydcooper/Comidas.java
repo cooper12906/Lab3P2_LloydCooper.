@@ -6,6 +6,7 @@ public class Comidas extends Productos {
 
     public Comidas(String nombre, double precio, boolean diasVencimiento) {
         super(nombre, precio);
+        this.nombre = nombre;
         this.diasVencimiento = diasVencimiento;
     }
 
@@ -19,10 +20,8 @@ public class Comidas extends Productos {
 
     @Override
     public String toString() {
-        return "Comidas{" + "comida: "+ nombre + "esta vencido? " + diasVencimiento + '}';
-    }
-
-          
+        return "Comidas{" + "Nombre:" + nombre + ", Esta vencido? " + diasVencimiento + '}';
+    }         
 }
 
 
